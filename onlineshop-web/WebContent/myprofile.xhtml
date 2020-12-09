@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+<fieldset>
+			<legend>
+				<h:outputText value="#{msg['myprofile']}" />
+			</legend>
+		<h:form id="myprofileForm" prependId="false">
+		<p:growl for="myprofileForm" showSummary="true" showDetail="true" />			
+			<h:panelGrid columns="3">				
+				<h:outputLabel value="#{msg['firstname']}" />
+				<h:inputText value="#{myprofileController.customer.firstname}"
+					id="firstName">
+					<f:validateLength minimum="1" maximum="50" />
+					<f:validateRequired for="firstname" />
+				</h:inputText>
+				<h:message for="firstName" />
+				<h:outputLabel value="#{msg['name']}" />
+				<h:inputText value="#{myprofileController.customer.name}" id="name">
+					<f:validateRequired for="name" />
+					<f:validateLength minimum="1" maximum="50" />
+				</h:inputText>
+				<h:message for="name" />
+				<h:outputLabel value="#{msg['email']}:" />
+				<h:outputText value="#{myprofileController.customer.email}" />
+				<h:panelGroup />
+
+				<h:commandButton value="#{msg['save']}"
+					action="#{myprofileController.persist}" id="save" />
+				<h:message for="save" />
+				<h:panelGroup />
+
+			</h:panelGrid>
+		</h:form>
+		</fieldset>
+	</ui:define>
+</ui:composition>
+</html>

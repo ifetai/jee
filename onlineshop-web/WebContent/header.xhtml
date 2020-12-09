@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<header>
+    <hgroup>
+        <h1 class="title">
+            <h:outputText value="#{msg['title']}" />
+        </h1>
+    </hgroup>
+    <nav>
+     <h:form>
+       <p:menubar>
+       <p:menuitem value="#{msg['home']}" outcome="index"/> 
+       <p:menuitem value="#{msg['register']}" outcome="register"/> 
+       <p:menuitem value="#{msg['signin']}" outcome="signin"/> 
+       <p:submenu label="#{msg['myprofile']}">
+        <p:menuitem value="#{msg['myprofiledata']}" outcome="myprofile"/> 
+        <p:menuitem value="#{msg['changepassword']}" outcome="changepassword"/>
+        <p:menuitem value="#{msg['deleteaccount']}" action="#{myprofileController.deactivateAccount}"/>
+        </p:submenu>
+       <p:menuitem value="#{msg['sell']}" outcome="sellinglist"/> 
+      <p:menuitem value="#{msg['history']}" outcome="history"/> 
+      <p:menuitem value="#{msg['search']}" outcome="search"/> 
+      <p:menuitem value="#{msg['shoppingcart']}" outcome="shoppingcart"/>     
+       <f:facet name="options">
+           <h:commandButton value="#{msg['logout']}" action="#{signinController.signout}"/>
+        </f:facet>     
+       
+         </p:menubar>
+         </h:form>
+            
+        <br />
+    </nav>
+    <h:form>
+        <h:commandLink
+            action="#{localeController.change('en')}"
+            value="en" />
+        <h:commandLink
+            action="#{localeController.change('de')}"
+             value="de" />
+    </h:form>
+</header>
+</html>

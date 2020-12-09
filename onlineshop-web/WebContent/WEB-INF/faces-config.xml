@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>
+				/index.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>
+				/register.xhtml
+			</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>signin</from-outcome>
+			<to-view-id>
+				/signin.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>myprofile</from-outcome>
+			<to-view-id>
+				/myprofile.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>changepassword</from-outcome>
+			<to-view-id>
+				/changepassword.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sellinglist</from-outcome>
+			<to-view-id>
+				/sellinglist.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+			<navigation-case>
+			<from-outcome>sell</from-outcome>
+			<to-view-id>
+				/search.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+			<navigation-case>
+			<from-outcome>sell</from-outcome>
+			<to-view-id>
+			/shoppingcart.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+			<navigation-case>
+			<from-outcome>history</from-outcome>
+			<to-view-id>
+			/history.xhtml
+			</to-view-id>
+			<redirect />
+		</navigation-case>
+	
+	</navigation-rule>
+</faces-config>

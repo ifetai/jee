@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+	<fieldset>
+			<legend>
+				<h:outputText value="#{msg['search']}" />
+			</legend>
+		<h:form>		
+			<h:dataTable value="#{searchController.items}" var="item"
+				id="itemList"
+				styleClass="order-table" headerClass="order-table-header"
+				rowClasses="order-table-odd-row,order-table-even-row">
+				<h:column>				
+					<h:graphicImage styleClass="imagesmall" url="image?id=#{item.id}" />
+				</h:column>				
+							
+				<h:column>
+					<f:facet name="header">#{msg['item.title']}</f:facet>
+					<h:outputText value="#{item.title}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg['item.description']}</f:facet>
+					<h:outputText value="#{item.description}" />
+				</h:column>		
+				
+				<h:column>
+					<f:facet name="header">#{msg['seller']}</f:facet>
+					<h:outputText value="#{item.seller.nameAndFirstname}" />
+				</h:column>		
+
+				<h:column>
+					<f:facet name="header">#{msg['item.price']}</f:facet>
+					<h:outputText value="#{item.price}" />
+				</h:column>
+
+				<h:column>
+				
+					<h:commandButton value="#{msg['item.detail']}"
+						action="#{shoppingCartController.showDetail(item)}" />
+
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		</fieldset>
+	</ui:define>
+</ui:composition>
+</html>

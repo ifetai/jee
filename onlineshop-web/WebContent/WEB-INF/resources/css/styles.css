@@ -1,0 +1,114 @@
+* {
+  font-family: sans-serif;
+  padding: 9px;
+  color: gray;
+}
+body > header {
+  background: url("#{resource['img:fruits.jpg']}");
+  border-radius: 10px;  
+  box-shadow: 5px 5px 9px gray;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+h3.title, h2.title, h1.titleh{
+	color: black;
+}
+
+a:hover, .title  {
+  color: white;
+  text-shadow: 0 0 10px white, 0 0 20px white;
+}
+
+input:not([type='image']), textarea {
+  width: 200px;
+}
+
+
+table tr  {
+	padding: 4px;
+}
+.order-table{
+	border-collapse:collapse;
+	table-layout: auto;
+  	width: 100%;  
+  	
+}
+
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+	padding: 4px;
+}
+
+.imagesmall{
+    width: 5em;
+    height: 5em;
+}
+
+.ui-growl-item span, p {
+	font-family: sans-serif;
+	color: white;
+	font-size: 0.9em;
+}
+
+div.ui-menubar {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	opacity: 0.85;
+	
+}
+
+.ui-menu-item {
+	position: absolute;
+  	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+a.ui-menuitem-link{
+	padding: .0em !important;
+}
+
+.ui-menuitem-text {
+	opacity: 1;
+}
+
+div.ui-menu > *{
+	padding: .0em !important;
+}
+
+.info {
+	color: green;
+}
+
+ .warn {
+ 	color: orange;
+}
+
+.error {
+	color: red;
+}
+ 
+.fatal {
+	color: purple;
+}
+
+
+

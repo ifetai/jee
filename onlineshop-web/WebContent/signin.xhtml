@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+		<fieldset>
+			<legend>
+				<h:outputText value="#{msg['signin']}" />
+			</legend>
+			<h:form id="signinForm" prependId="false">
+
+				<p:growl for="signinForm" showSummary="true" showDetail="true" />
+				<h:panelGrid columns="3">
+					<h:outputLabel value="#{msg['email']}" />
+					<h:inputText value="#{signinController.email}" id="email"
+						validator="#{validatorController.isEmail}">
+						<f:validateRequired for="email" />
+						<f:validateLength minimum="1" maximum="50" />
+					</h:inputText>
+					<h:message for="email" />
+					<h:outputLabel value="Passwort:" />
+					<h:inputSecret value="#{signinController.password}" id="password">
+						<f:validateRequired for="password" />
+						<f:validateLength minimum="6" maximum="15" />
+					</h:inputSecret>
+					<h:message for="password" />
+					<h:commandButton value="#{msg['signin']}"
+						action="#{signinController.find}" id="signin" />
+					<h:message for="signin" />
+				</h:panelGrid>
+			</h:form>
+		</fieldset>
+	</ui:define>
+</ui:composition>
+</html>

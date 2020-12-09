@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+
+		<h:form id="sellingListForm" prependId="false">
+			<p:growl for="sellingListForm" showSummary="true" showDetail="true" />
+
+			<h:commandButton value="#{msg['sellnew']}"
+				action="#{sellController.sellItem()}" />
+			<fieldset>
+				<legend>
+					<h:outputText value="#{msg['sellactive']}" />
+				</legend>
+
+				<h:dataTable value="#{sellController.items}" var="item"
+					id="itemList" styleClass="order-table"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<h:column>
+						<f:facet name="header">#{msg['item.foto']}</f:facet>
+						<h:graphicImage styleClass="imagesmall" url="image?id=#{item.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg['item.id']}</f:facet>
+						<h:outputText value="#{item.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg['item.title']}</f:facet>
+						<h:outputText value="#{item.title}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg['item.description']}</f:facet>
+						<h:outputText value="#{item.description}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg['item.price']}</f:facet>
+						<h:outputText value="#{item.price}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg['item.stock']}</f:facet>
+						<h:outputText value="#{item.stock}" />
+					</h:column>
+
+					<h:column>
+
+						<h:commandButton value="#{msg['item.modify']}"
+							action="#{sellController.modifyItem(item)}" />
+
+					</h:column>
+
+					<h:column>
+
+						<h:commandButton value="#{msg['item.endsale']}"
+							action="#{sellController.endSale(item)}" />
+
+					</h:column>
+				</h:dataTable>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
